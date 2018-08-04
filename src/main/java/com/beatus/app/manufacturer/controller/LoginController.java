@@ -65,7 +65,7 @@ public class LoginController {
 	 */
 
 	@RequestMapping(value = Constants.WEB_LOGIN, method = RequestMethod.POST, consumes = ManufacturerAppMediaType.APPLICATION_JSON, produces = ManufacturerAppMediaType.APPLICATION_JSON)
-	public JSendResponse<String> checkLogin(HttpServletRequest request, HttpServletResponse response, User user,
+	public @ResponseBody JSendResponse<String> checkLogin(HttpServletRequest request, HttpServletResponse response, @RequestBody User user,
 			ModelMap model) throws ClassNotFoundException, SQLException {
 		LOGGER.info("In checkLogin ");
 		String authenticatedResp = loginService.checkLogin(user, request, response);

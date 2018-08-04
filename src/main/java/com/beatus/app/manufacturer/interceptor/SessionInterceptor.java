@@ -38,7 +38,7 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws ServletException, IOException {
-		final String requestMethod = request.getMethod(), servletPath = request.getRequestURI();
+		/*final String requestMethod = request.getMethod(), servletPath = request.getRequestURI();
 		LOG.debug(INTERCEPTOR_LOG_START, "Incoming", requestMethod, servletPath);
 		boolean continueExecution = false;
 		Map<String, String> cookieContent = cookieManager.getExistingCookie(request, response, COOKIE_NAME);
@@ -52,7 +52,7 @@ public class SessionInterceptor extends HandlerInterceptorAdapter {
 				request.setAttribute(Constants.COMPANY_ID, cookieContent.get(Constants.COMPANY_ID));
 				request.setAttribute(Constants.USER_TYPE, cookieContent.get(Constants.USER_TYPE));
 			}
-		}
+		}*/
 		return true;
 	}
 
