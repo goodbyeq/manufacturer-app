@@ -20,7 +20,7 @@ import com.beatus.app.manufacturer.utils.Constants;
 @Component("productService")
 public class ProductService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ProductService.class);
+	/*private static final Logger LOGGER = LoggerFactory.getLogger(ProductService.class);
 
 	@Resource(name = "locationService")
 	private LocationService locationService;
@@ -112,6 +112,6 @@ public class ProductService {
 			//TO-DO add a message that the row is not deleted
 			return Constants.REDIRECT + "/product/getProductsAndLocations";
 		}
-	}
+	}*/
 
 }

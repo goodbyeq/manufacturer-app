@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class HomeController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
+   /* private static final Logger LOG = LoggerFactory.getLogger(HomeController.class);
 
     @RequestMapping(method = RequestMethod.GET)
     public String sayHello(ModelMap model) {
         model.addAttribute("message", "Billlive");
         model.addAttribute("title", "Billlive");
         return "welcome";
-    }
+    }*/
 }

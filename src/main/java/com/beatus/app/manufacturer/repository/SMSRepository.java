@@ -18,7 +18,7 @@ import com.beatus.app.manufacturer.model.SMSConfiguration;
 @Component("smsRepository")
 public class SMSRepository {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(SMSRepository.class);
+	/*private static final Logger LOGGER = LoggerFactory.getLogger(SMSRepository.class);
 
 	@Autowired
 	@Qualifier(value = "connection")
@@ -95,5 +95,5 @@ public class SMSRepository {
 			LOGGER.info("A new sms was updated successfully!");
 		}
 	}
-
+*/
 }

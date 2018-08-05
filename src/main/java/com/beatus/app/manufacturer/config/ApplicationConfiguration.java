@@ -29,6 +29,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -110,24 +111,20 @@ public class ApplicationConfiguration {
     }
     
     @Bean
-    public Connection connection() throws ClassNotFoundException {
-		Class.forName("com.mysql.jdbc.Driver");
+    public DriverManagerDataSource driverManagerDataSource() throws ClassNotFoundException {
 
 	    //String dbURL = "jdbc:mysql://localhost:3306/sys?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-		String dbURL = "jdbc:mysql://localhost:3306/sys?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+		String dbURL = "jdbc:mysql://localhost:3306/sys?serverTimezone=UTC";
 		String username = "root";
-		String password = "";
-		Connection conn = null;
-		try {
-			conn = DriverManager.getConnection(dbURL, username, password);
-			if (conn != null) {
-				System.out.println("Connected");
-			}
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-		}
+		String password = "root";
+		
+		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		dataSource.setUrl(dbURL);
+		dataSource.setUsername(username);
+		dataSource.setPassword(password);
 		LOGGER.info("In connection");
-		return conn;
+		return dataSource;
 	}
     
     @Bean

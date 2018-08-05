@@ -21,7 +21,7 @@ import com.beatus.app.manufacturer.utils.Constants;
 @RequestMapping(Constants.WEB_SMS_REQUEST)
 public class SMSController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(SMSController.class);
+	/*private static final Logger LOGGER = LoggerFactory.getLogger(SMSController.class);
 
 	@Resource(name = "smsService")
     private SMSService smsService;
@@ -86,5 +86,5 @@ public class SMSController {
     	
     	smsService.postSMSScreen(request, productNameLocAndPrice, model, companyId, uid);
         return Constants.REDIRECT + "/sms/sendsmsScreen";
-    }
+    }*/
 }

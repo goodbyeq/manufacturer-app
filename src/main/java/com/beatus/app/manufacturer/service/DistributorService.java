@@ -18,7 +18,7 @@ import com.beatus.app.manufacturer.utils.Constants;
 @Service
 @Component("distributorService")
 public class DistributorService {
-
+/*
 	private static final Logger LOGGER = LoggerFactory.getLogger(DistributorService.class);
 
 	@Resource(name = "locationService")
@@ -71,6 +71,6 @@ public class DistributorService {
 			return Constants.REDIRECT + "/distributor/getDistributors";
 		}
 			
-	}
+	}*/
 
 }

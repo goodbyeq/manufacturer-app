@@ -22,7 +22,7 @@ import com.beatus.app.manufacturer.utils.Constants;
 @RequestMapping(Constants.WEB_LOCATION_REQUEST)
 public class LocationController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(LocationController.class);
+	/*private static final Logger LOGGER = LoggerFactory.getLogger(LocationController.class);
 
 	@Resource(name = "locationService")
     private LocationService locationService;
@@ -77,5 +77,5 @@ public class LocationController {
         resp.setLocations(locations);
     	model.addAttribute("locations", locations);
         return "location/request-get";
-    }
+    }*/
 }

@@ -25,7 +25,7 @@ import com.beatus.app.manufacturer.utils.Constants;
 @RequestMapping(Constants.WEB_PRODUCTS_REQUEST)
 public class ProductsController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ProductsController.class);
+	/*private static final Logger LOGGER = LoggerFactory.getLogger(ProductsController.class);
 
 	@Resource(name = "productService")
     private ProductService productService;
@@ -152,7 +152,7 @@ public class ProductsController {
 		String uid = (String) request.getAttribute(Constants.USERNAME);
     	Product product = productService.getProductById(productId , companyId );
     	return product;
-    }
+    }*/
     
 
 }

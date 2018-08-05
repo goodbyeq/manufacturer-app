@@ -21,7 +21,7 @@ import com.beatus.app.manufacturer.utils.Constants;
 @Component("distributorRepository")
 public class DistributorRepository {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(DistributorRepository.class);
+	/*private static final Logger LOGGER = LoggerFactory.getLogger(DistributorRepository.class);
 
 	@Autowired
 	@Qualifier(value = "connection")
@@ -143,5 +143,5 @@ public class DistributorRepository {
 
 		boolean result = statement.execute();
 		return result;
-	}
+	}*/
 }

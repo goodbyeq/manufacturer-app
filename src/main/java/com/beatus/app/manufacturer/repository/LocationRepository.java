@@ -20,7 +20,7 @@ import com.beatus.app.manufacturer.utils.Constants;
 @Component("locationRepository")
 public class LocationRepository {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(LocationRepository.class);
+	/*private static final Logger LOGGER = LoggerFactory.getLogger(LocationRepository.class);
 
 	@Autowired
 	@Qualifier(value = "connection")
@@ -138,6 +138,6 @@ public class LocationRepository {
 
 		boolean result = statement.execute();
 		return result;
-	}
+	}*/
 
 }

@@ -34,7 +34,7 @@ import com.beatus.app.manufacturer.utils.Constants;
 @Service
 @Component("smsService")
 public class SMSService {
-
+/*
 	@Resource(name = "distributorService")
 	private DistributorService distributorService;
 
@@ -169,5 +169,5 @@ public class SMSService {
 		smsRepository.editSMSConfiguration(smsConfiguration);
 		return Constants.REDIRECT + "/sms/getSmsConfiguration";
 	}
-
+*/
 }

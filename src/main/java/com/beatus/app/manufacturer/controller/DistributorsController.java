@@ -23,7 +23,7 @@ import com.beatus.app.manufacturer.utils.Constants;
 @RequestMapping(Constants.WEB_DISTRIBUTOR_REQUEST)
 public class DistributorsController {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(DistributorsController.class);
+	/*private static final Logger LOGGER = LoggerFactory.getLogger(DistributorsController.class);
 
 	@Resource(name = "distributorService")
     private DistributorService distributorService;
@@ -80,5 +80,5 @@ public class DistributorsController {
         resp.setDistributors(distributors);
     	model.addAttribute("distributors", distributors);
         return "distributor/request-get";
-    }
+    }*/
 }

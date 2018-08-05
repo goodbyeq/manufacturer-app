@@ -24,7 +24,7 @@ import com.beatus.app.manufacturer.model.ProductsAndLocations;
 @Component("productRepository")
 public class ProductRepository {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(ProductRepository.class);
+	/*private static final Logger LOGGER = LoggerFactory.getLogger(ProductRepository.class);
 
 	@Autowired
 	@Qualifier(value = "connection")
@@ -93,8 +93,8 @@ public class ProductRepository {
 			statement.setDate(21, product.getExpDate());
 			statement.setDouble(22, product.getTotalUnitPrice());
 			statement.setString(23, product.getQuantityType().toString());
-			/*Blob blob = new javax.sql.rowset.serial.SerialBlob(product.getProductImage());
-			statement.setBlob(3, null);*/
+			Blob blob = new javax.sql.rowset.serial.SerialBlob(product.getProductImage());
+			statement.setBlob(3, null);
 			int rowsInserted = statement.executeUpdate();
 			if (rowsInserted > 0) {
 				LOGGER.info("A new distributor was inserted successfully!");
@@ -247,9 +247,9 @@ public class ProductRepository {
 		statement.setString(2, product.getProductCategory());
 		statement.setString(3, product.getCompanyId());
 		statement.setString(4, product.getUid());
-		/*Blob blob = new javax.sql.rowset.serial.SerialBlob(product.getProductImage());
+		Blob blob = new javax.sql.rowset.serial.SerialBlob(product.getProductImage());
 		statement.setBlob(3, blob);
-		statement.setInt(4, product.getProductId());*/
+		statement.setInt(4, product.getProductId());
 		statement.setInt(5, product.getProductId());
 		int rowsInserted = statement.executeUpdate();
 		if (rowsInserted > 0) {
@@ -277,6 +277,6 @@ public class ProductRepository {
 
 		boolean result = statement.execute();
 		return result;
-	}
+	}*/
 
 }

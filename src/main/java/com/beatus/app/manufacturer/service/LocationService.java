@@ -18,7 +18,7 @@ import com.beatus.app.manufacturer.utils.Constants;
 @Component("locationService")
 public class LocationService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(LocationService.class);
+	/*private static final Logger LOGGER = LoggerFactory.getLogger(LocationService.class);
 	
 	@Resource(name = "locationRepository")
 	private LocationRepository locationRepository;
@@ -62,5 +62,5 @@ public class LocationService {
 			//TO-DO add a message that the row is not deleted
 			return Constants.REDIRECT + "/location/getLocations";
 		}
-	}
+	}*/
 }
