@@ -114,7 +114,7 @@ public class ApplicationConfiguration {
     public DriverManagerDataSource driverManagerDataSource() throws ClassNotFoundException {
 
 	    //String dbURL = "jdbc:mysql://localhost:3306/sys?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-		String dbURL = "jdbc:mysql://localhost:3306/sys?serverTimezone=UTC";
+		String dbURL = "jdbc:mysql://localhost:3306/sys?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 		String username = "root";
 		String password = "root";
 		
