@@ -1,10 +1,12 @@
 package com.beatus.app.manufacturer.model;
 
+import java.util.List;
+
 public class BaseData {
 
 	private String companyId;
 	private String uid;
-	private String userType;
+	private List<String> userType;
 
 	public String getCompanyId() {
 		return companyId;
@@ -22,11 +24,11 @@ public class BaseData {
 		this.uid = uid;
 	}
 
-	public String getUserType() {
+	public List<String> getUserType() {
 		return userType;
 	}
 
-	public void setUserType(String userType) {
+	public void setUserType(List<String> userType) {
 		this.userType = userType;
 	}
 	

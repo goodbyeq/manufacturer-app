@@ -78,4 +78,9 @@ public class Constants {
 	public static final String ERROR_USER_WITH_SAME_PHONE_EXISTS = "Account with this phone number already exists";
 	public static final String SUCCESS = "success";
 	public static final String FAILURE = "failure";
+	public static final String DISTRIBUTOR_TYPE = "DISTRIBUTOR";
+	public static final String RETAILER_TYPE = "RETAILER";
+	public static final String MANUFACTURER_TYPE = "MANUFACTURER";
+	public static final String CUSTOMER_TYPE = "CUSTOMER";
+	public static final String COLLECTION_AGENT_TYPE = "COLLECTION_AGENT";	
 }

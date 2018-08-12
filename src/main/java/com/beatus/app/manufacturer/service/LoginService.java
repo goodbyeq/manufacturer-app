@@ -119,9 +119,9 @@ public class LoginService {
 			if (StringUtils.isBlank(user.getUid())) {
 				user.setUid(Utils.generateRandomKey(50));
 			}
-			if (StringUtils.isBlank(user.getUserType())) {
+			/*if (StringUtils.isBlank(user.getUserType())) {
 				user.setUserType(Constants.USER_ADMIN);
-			}
+			}*/
 			if (StringUtils.isBlank(user.getCompanyId())) {
 				companyId = Utils.generateRandomKey(50);
 				user.setCompanyId(companyId);

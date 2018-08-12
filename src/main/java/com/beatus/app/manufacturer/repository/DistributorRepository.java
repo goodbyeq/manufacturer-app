@@ -4,53 +4,74 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
+import javax.sql.DataSource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.beatus.app.manufacturer.model.Distributor;
+import com.beatus.app.manufacturer.model.User;
 import com.beatus.app.manufacturer.utils.Constants;
+import com.beatus.app.manufacturer.utils.Utils;
 
 @Component("distributorRepository")
 public class DistributorRepository {
 
-	/*private static final Logger LOGGER = LoggerFactory.getLogger(DistributorRepository.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(DistributorRepository.class);
 
 	@Autowired
-	@Qualifier(value = "connection")
-	private Connection conn;
+	@Qualifier(value = "driverManagerDataSource")
+	private DataSource dataSource;
 
-	public String addDistributor(Distributor distributor) throws ClassNotFoundException, SQLException {
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Throwable.class)
+	public boolean addDistributor(User distributor) throws ClassNotFoundException, SQLException {
 
-		Distributor distributorFromDB = getDistributorByDistributorName(distributor.getDistributorName(), distributor.getCompanyId());
-		if (distributorFromDB != null && StringUtils.isNotBlank(distributorFromDB.getDistributorName())) {
-			distributor.setDistributorId(distributorFromDB.getDistributorId());
-			editDistributor(distributor);
-		} else {
-			String sql = "INSERT INTO distributor (distributor_name, distributor_phone, location_id, company_id, uid) VALUES (?, ?, ?, ?, ?)";
-			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, distributor.getDistributorName());
-			statement.setString(2, distributor.getDistributorPhone());
-			statement.setInt(3, distributor.getLocationId());
-			statement.setString(4, distributor.getCompanyId());
-			statement.setString(5, distributor.getUid());
+		PreparedStatement statement = null;
+		Connection conn = null;
+		try {
+			LOGGER.info("In addDistributor");
+			String sql = "INSERT INTO distributor (distributor_id, distributor_company_id, uid, distributor_company_name, dictributor_company_type, distributor_first_name, distributor_last_name, distributor_phone, distributor_email, address, city, zipcode ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			conn = dataSource.getConnection();
+			statement = conn.prepareStatement(sql);
+			statement.setString(1, Utils.generateRandomKey(50));
+			statement.setString(2, distributor.getCompanyId());
+			statement.setString(3, distributor.getUid());
+			statement.setString(4, distributor.getCompanyName());
+			statement.setString(5, distributor.getCompanyType());
+			statement.setString(6, distributor.getFirstname());
+			statement.setString(7, distributor.getLastname());
+			statement.setString(8, distributor.getPhone());
+			statement.setString(9, distributor.getEmail());
+			statement.setString(10, distributor.getAddress());
+			statement.setString(11, distributor.getCity());
+			statement.setString(12, distributor.getZipcode());
 
 			int rowsInserted = statement.executeUpdate();
 			if (rowsInserted > 0) {
 				LOGGER.info("A new distributor was inserted successfully!");
+				return true;
+			}else {
+				return false;
+			}
+		} finally {
+			if (statement != null) {
+				statement.close();
+			}
+			if (conn != null) {
+				conn.close();
 			}
 		}
-		return Constants.REDIRECT + "/distributor/getDistributors";
 	}
 
-	public String editDistributor(Distributor distributor) throws ClassNotFoundException, SQLException {
+	/*public String editDistributor(Distributor distributor) throws ClassNotFoundException, SQLException {
 
 		String sql = "UPDATE distributor SET distributor_name= ?, distributor_phone= ?, location_id= ?, company_id = ?, uid = ? WHERE distributor_id = ?";
 		PreparedStatement statement = conn.prepareStatement(sql);
@@ -68,7 +89,7 @@ public class DistributorRepository {
 		return Constants.REDIRECT + "/distributor/getDistributors";
 	}
 
-	public Distributor getDistributorById(int id, String companyId) throws ClassNotFoundException, SQLException {
+	public Distributor getDistributorById(String id, String companyId) throws ClassNotFoundException, SQLException {
 		Distributor distributor = new Distributor();
 		String sql = "SELECT dist.distributor_id AS distributorId, dist.distributor_name AS distributorName, dist.distributor_phone AS distributorPhone, "
 				+ "loc.location_id AS distributorLocationId, loc.location_name AS distributorLocationName "

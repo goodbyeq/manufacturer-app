@@ -1,5 +1,7 @@
 package com.beatus.app.manufacturer.model;
 
+import java.util.List;
+
 public class User extends BaseData{
 
 	private String username;
@@ -10,10 +12,11 @@ public class User extends BaseData{
 	private String phone;
 	private String companyId;
 	private String companyName;
+	private String companyType;
 	private String address;
 	private String city;
 	private String state;
-	private String userType;
+	private String zipcode;
 	private String isVerified;
 
 	public String getUsername() {
@@ -82,23 +85,27 @@ public class User extends BaseData{
 	public void setState(String state) {
 		this.state = state;
 	}
-	public String getUserType() {
-		return userType;
-	}
-	public void setUserType(String userType) {
-		this.userType = userType;
-	}
 	public String getIsVerified() {
 		return isVerified;
 	}
 	public void setIsVerified(String isVerified) {
 		this.isVerified = isVerified;
 	}
+	public String getCompanyType() {
+		return companyType;
+	}
+	public void setCompanyType(String companyType) {
+		this.companyType = companyType;
+	}
+	public String getZipcode() {
+		return zipcode;
+	}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", firstname=" + firstname + ", lastname="
-				+ lastname + ", email=" + email + ", phone=" + phone + ", companyId=" + companyId + ", companyName="
-				+ companyName + ", address=" + address + ", city=" + city + ", state=" + state + ", userType="
-				+ userType + ", isVerified=" + isVerified + "]";
+		return "User [username=" + username + ", firstname=" + firstname + ", companyName=" + companyName
+				+ ", companyType=" + companyType + " ]";
 	}
 }
